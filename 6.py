@@ -1,19 +1,15 @@
-f = open('input.txt', 'r')
-M = int(f.readline())
+maxVal = int(input())
 LIST = []
-for _ in range(int(f.readline())):
-    if not (len(LIST)):
-        x = list(f.readline().split())
-        if ( 1 <= int(x[0]) <= int(x[1]) <= M):
-            LIST.append(x)
+for i in range(int(input())):
+    if LIST == []:
+        LIST.append(list(map(int, input().split(' '))))
     else:
-        x = list(f.readline().split())
-        if ( 1 <= int(x[0]) <= int(x[1]) <= M):
-            TRASH = []
-            for value in LIST:
-                if not int(value[0]) <= int(x[1]) or int(x[0]) <= int(value[1]):
-                    TRASH.append(value)
-            for value in TRASH:
+        a,b = list(map(int, input().split(' ')))
+        for value in LIST:
+            c,d = value
+            if (a <= d) and (c <= b):
                 LIST.remove(value)
-            LIST.append(x)
+        LIST.append([a,b])
+
+print(LIST)
 print(len(LIST))
